@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Web.Mvc;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using RCExp;
 using RCExp.Controllers;
+using NUnit.Framework;
 
 namespace Unit.Test.Controllers
 {
-    [TestClass]
+    [TestFixture]
     public class HomeControllerTest
     {
-        [TestMethod]
+        [Test]
         public void Index()
         {
             // Arrange
@@ -22,10 +22,10 @@ namespace Unit.Test.Controllers
             ViewResult result = controller.Index() as ViewResult;
 
             // Assert
-            Assert.IsNotNull(result);
+            NUnit.Framework.Assert.IsNotNull(result);
         }
 
-        [TestMethod]
+        [Test]
         public void About()
         {
             // Arrange
@@ -35,10 +35,10 @@ namespace Unit.Test.Controllers
             ViewResult result = controller.About() as ViewResult;
 
             // Assert
-            Assert.AreEqual("Your application description page.", result.ViewBag.Message);
+            NUnit.Framework.Assert.AreEqual("Your application description page.", result.ViewBag.Message);
         }
 
-        [TestMethod]
+        [Test]
         public void Contact()
         {
             // Arrange
